@@ -31,14 +31,14 @@ function promptUser() {
             {
                 type: "input",
                 name="letter",
-                message: "\nPick a letter and press enter."
+                message: "\nPick a letter and press enter.\n"
             }
         ]).then(function (data) {
             checkAnswer(data);
         });
     }
     else {
-        console.log("\nSorry, you're out of guesses.\n";
+        console.log("\nSorry, you're out of guesses.\n");
         console.log(chosenWord.rainbow);
         chosenWord = "";
         gameWord = "";
@@ -49,6 +49,7 @@ function promptUser() {
 }
 
 //checks if user input is correct
+//source mdn and stackoverflow
 function checkAnswer(data) {
     if ((data.letter.length === 1) && /^[a-zA-Z]=$/.test(data.letter)) {
         var checkable = data.letter.toUpperCase();
